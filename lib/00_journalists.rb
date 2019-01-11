@@ -11,9 +11,7 @@ def digit
 end
 
 def aude
-   result1 = @journalist.count {|x| x['aude']} 
-   result2 = @journalist.count {|x| x['Aude']}
-   result = result1 + result2
+   result = @journalist.count {|x| x[/aude/i]}  
    puts "Il y a #{result} handles qui comportent le nom Aude / aude."
 end
 
@@ -22,6 +20,7 @@ def first_capital
     result = sorted.count{|x| x[0].match(/[A-Z]/)}
     puts "Il y a #{result} handles qui comportent leur username avec comme première lettre une majuscule!"
 end
+
 def capital
     result = @journalist.count{|x| x.capitalize!}
     puts "Il y a #{result} handles qui contiennent une majuscule!"
@@ -53,6 +52,7 @@ def perform
     aude
 
     first_capital
+   #  first_capital2
 
     capital
 
